@@ -3,12 +3,12 @@ import React from 'react';
 import './BucketGoalItem.css';
 
 export default function BucketGoalItem(props) {
-  const onClickHandler = () => {
-    props.onDelete(props.bucketGoal.id);
+  const deleteHandler = () => {
+    props.onDelete(props.id);
   };
   return (
-    <li onClick={onClickHandler} className='goal-item'>
-      {props.bucketGoal.text}
+    <li className='goal-item' onClick={deleteHandler}>
+      {props.children}
     </li>
   );
 }

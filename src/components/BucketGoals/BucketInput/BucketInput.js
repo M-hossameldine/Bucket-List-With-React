@@ -13,8 +13,8 @@ export default function BucketInput(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('BucketInput.js', enteredBucketGoal);
-    props.onSaveBucketGoal({ text: enteredBucketGoal, id: uuidv4() });
+    // console.log('BucketInput.js', enteredBucketGoal);
+    props.onAddBucketGoal({ text: enteredBucketGoal, id: uuidv4() });
   };
 
   return (
@@ -24,7 +24,7 @@ export default function BucketInput(props) {
         <input type='text' onChange={goalInputChangeHandler} />
       </div>
       <div className='form-actoin'>
-        <Button type='submit' text='Add Bucket Goal' onClick={() => {}} />
+        <Button type='submit' text='Add Bucket Goal' />
       </div>
     </form>
   );

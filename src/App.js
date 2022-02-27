@@ -13,7 +13,7 @@ const INITIAL_BUCKET_GOALS = [
 function App() {
   const [bucketGoals, setBucketGoals] = useState(INITIAL_BUCKET_GOALS);
 
-  const saveBucketGoalHandler = (newBucketGoal) => {
+  const addBucketGoalHandler = (newBucketGoal) => {
     console.log('from App.js', newBucketGoal);
     setBucketGoals((prevBucketList) => {
       const updateBucketGoals = [...prevBucketList];
@@ -22,14 +22,14 @@ function App() {
     });
   };
 
-  const deletBucketGoalWithIdHandler = (goalId) => {
+  const deleteItemWithIdHandler = (goalId) => {
     setBucketGoals((prevBucketList) =>
       prevBucketList.filter((goal) => goal.id != goalId)
     );
   };
 
   let bucketListContent = (
-    <p>
+    <p style={{ textAlign: 'center' }}>
       Your Bucket List is empty. <br /> lets add your goals!
     </p>
   );
@@ -37,7 +37,7 @@ function App() {
     bucketListContent = (
       <BucketGoalList
         items={bucketGoals}
-        onBucketGoalDelete={deletBucketGoalWithIdHandler}
+        onDeleteItem={deleteItemWithIdHandler}
       />
     );
   }
@@ -45,7 +45,7 @@ function App() {
   return (
     <div>
       <section id='goal-form'>
-        <BucketInput onSaveBucketGoal={saveBucketGoalHandler} />
+        <BucketInput onAddBucketGoal={addBucketGoalHandler} />
       </section>
       <section id='goals'> {bucketListContent} </section>
     </div>
