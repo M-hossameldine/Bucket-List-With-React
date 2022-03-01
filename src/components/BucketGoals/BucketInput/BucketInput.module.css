@@ -26,3 +26,12 @@
   background-color: purple;
   padding: 1rem 2rem;
 }
+
+.form-control.invalid label {
+  color: tomato;
+}
+
+.form-control.invalid input {
+  border-color: red;
+  background-color: rgb(255, 173, 173);
+}

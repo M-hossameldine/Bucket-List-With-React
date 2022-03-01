@@ -1,40 +1,41 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import styles from './BucketInput.module.css';
 
 import Button from '../../UI/Button/Button';
 
-const FormControl = styled.div`
-  margin: 0.5rem 0;
+// const FormControl = styled.div`
+//   margin: 0.5rem 0;
 
-  & label {
-    color: ${(props) => (props.invalid ? 'tomato' : 'black')};
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
+//   & label {
+//     color: ${(props) => (props.invalid ? 'tomato' : 'black')};
+//     display: block;
+//     font-weight: bold;
+//     margin-bottom: 0.5rem;
+//   }
 
-  & input {
-    background: ${(props) => (props.invalid ? '#fa9999' : 'transparent')};
-    display: block;
-    width: 100%;
-    border: 1px solid ${(props) => (props.invalid ? 'red' : '#ccc')};
-    font: inherit;
-    line-height: 1.5rem;
-    padding: 0 0.25rem;
-  }
+//   & input {
+//     background: ${(props) => (props.invalid ? '#fa9999' : 'transparent')};
+//     display: block;
+//     width: 100%;
+//     border: 1px solid ${(props) => (props.invalid ? 'red' : '#ccc')};
+//     font: inherit;
+//     line-height: 1.5rem;
+//     padding: 0 0.25rem;
+//   }
 
-  & input:focus {
-    outline: none;
-    background: #fad0ec;
-    border-color: #8b005d;
-  }
+//   & input:focus {
+//     outline: none;
+//     background: #fad0ec;
+//     border-color: #8b005d;
+//   }
 
-  & button {
-    background-color: purple;
-    padding: 1rem 2rem;
-  }
-`;
+//   & button {
+//     background-color: purple;
+//     padding: 1rem 2rem;
+//   }
+// `;
 
 export default function BucketInput(props) {
   const [enteredBucketGoal, setEnteredBucketGoal] = useState('');
@@ -57,10 +58,16 @@ export default function BucketInput(props) {
 
   return (
     <form onSubmit={submitHandler}>
-      <FormControl invalid={!isValid}>
+      {/* <FormControl invalid={!isValid}>
         <label htmlFor=''> Bucket Goal </label>
         <input type='text' onChange={goalInputChangeHandler} />
-      </FormControl>
+      </FormControl> */}
+      <div
+        className={`${styles['form-control']} ${!isValid && styles.invalid}`}
+      >
+        <label htmlFor=''> Bucket Goal </label>
+        <input type='text' onChange={goalInputChangeHandler} />
+      </div>
       <div className='form-action'>
         <Button type='submit'>Add Bucket Goal</Button>
       </div>
